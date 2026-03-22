@@ -1,0 +1,35 @@
+
+services:
+  postgres:
+    image: timescale/timescaledb:latest-pg16
+    container_name: pontic_postgres
+    environment:
+      POSTGRES_DB: pontic
+      POSTGRES_USER: pontic
+      POSTGRES_PASSWORD: pontic_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - pontic_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pontic"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: pontic_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - pontic_redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pontic_pgdata:
+  pontic_redisdata:

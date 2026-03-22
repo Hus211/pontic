@@ -1,0 +1,12 @@
+pontic:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      dbname: pontic
+      user: pontic
+      password: pontic_dev
+      schema: public
+      threads: 4
