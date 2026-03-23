@@ -1,45 +1,36 @@
-# Pontic — Global Macro Intelligence Platform
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-End-to-end macro data platform: ingest → warehouse → transform → API → dashboard.
+## Getting Started
 
-## Stack
-- **Ingestion:** Python + httpx (async) | FRED, World Bank, OECD, BLS, ECB, yfinance
-- **Warehouse:** PostgreSQL + TimescaleDB + dbt
-- **Cache:** Redis
-- **API:** FastAPI
-- **Frontend:** Next.js 14 + Tailwind + Tremor + D3.js
-- **Orchestration:** Prefect
-
-## Quick Start
+First, run the development server:
 
 ```bash
-# 1. Start databases
-docker compose up -d
-
-# 2. Create virtual environment
-python3.11 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-
-# 3. Copy env file
-cp .env.example .env
-# Add your FRED API key to .env
-
-# 4. Run dbt
-cd warehouse && dbt run
-
-# 5. Start API
-uvicorn api.main:app --reload
-
-# 6. Start frontend
-cd frontend && npm run dev
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Layers
-- [ ] Layer 1 — Data ingestion (6 sources)
-- [ ] Layer 2 — Warehouse schema + dbt transforms
-- [ ] Layer 3 — Regime classifier + derived signals
-- [ ] Layer 4 — FastAPI + Redis
-- [ ] Layer 5 — Next.js dashboard
-- [ ] Layer 6 — Country cards + correlation explorer
-- [ ] Layer 7 — Narrative feed + deploy
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
