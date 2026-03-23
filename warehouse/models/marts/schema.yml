@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: mart_macro_signals
+    description: "Latest macro indicator readings with MoM/YoY changes and z-scores"
+    columns:
+      - name: series_key
+        description: "Unique indicator identifier"
+      - name: latest_value
+        description: "Most recent observed value"
+      - name: zscore
+        description: "Standard deviations from 10-year mean"
+      - name: zscore_label
+        description: "NORMAL / ELEVATED / EXTREME"
+
+  - name: mart_country_snapshot
+    description: "Latest macro snapshot per country for dashboard cards"
+    columns:
+      - name: country_code
+        description: "ISO country code"
+      - name: growth_signal
+        description: "EXPANDING / STABLE / SLOWING / CONTRACTING based on CLI"
+
+  - name: mart_market_snapshot
+    description: "Latest market proxy prices with momentum signals"
+    columns:
+      - name: trend_signal
+        description: "STRONG_UP / UP / DOWN / STRONG_DOWN based on 1M return"

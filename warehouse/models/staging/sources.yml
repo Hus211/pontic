@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: pontic_raw
+    schema: public
+    description: "Raw ingested macro data from all 6 sources"
+    tables:
+      - name: raw_indicators
+        description: "US macro indicators: FRED, ECB, BLS"
+        columns:
+          - name: source
+            description: "Data source name"
+          - name: series_key
+            description: "Internal series identifier"
+          - name: date
+            description: "Observation date"
+          - name: value
+            description: "Numeric value of the indicator"
+
+      - name: raw_country_indicators
+        description: "Global country indicators: World Bank, OECD"
+
+      - name: raw_market_proxies
+        description: "Market proxy data: yfinance tickers"
